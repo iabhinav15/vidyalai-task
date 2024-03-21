@@ -1,14 +1,12 @@
 "use client";
 import React, { useState} from 'react'
-import { TbSocial } from 'react-icons/tb'
 import { useForm } from 'react-hook-form'
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import Link from 'next/link';
 import Image from 'next/image';
-import TextInput from '../components/TextInput';
-import Loading from '../components/Loading';
-import CustomButton from '../components/CustomButton';
-import LoginwithGoogle from '../components/LoginwithGoogle';
+import TextInput from '../components/TestInput/TextInput';
+import Loading from '../components/Loading/Loading';
+import CustomButton from '../components/CustomBotton/CustomButton';
 import { useRouter } from 'next/navigation';
 import { GrMultiple } from 'react-icons/gr';
 
@@ -20,7 +18,7 @@ const LoginPage = () => {
   const router = useRouter();
 
   const onSubmit = async (data) => {
-    console.log(data)
+
     setIsSubmitting(true);
     try {
       const url = `${process.env.NEXT_PUBLIC_API_URL}/api/users/login`;
@@ -97,9 +95,6 @@ const LoginPage = () => {
             isSubmitting ? <Loading /> : <CustomButton type='submit' containerStyles={`inline-flex justify-center rounded-md bg-red-500 px-16 py-2.5 tracking-wide text-md font-medium text-white outline-none `} title='Login'/>
           }
           </form>
-          <div className='inline-flex justify-center'>
-            <LoginwithGoogle type="Login"/>
-          </div>
           <p className='text-ascent-2 pt-6 text-sm text-center'>
             Don&lsquo;t have an account? <Link href='/register' className='text-red-500 font-semibold ml-2 cursor-pointer'>Sign up</Link>
           </p>

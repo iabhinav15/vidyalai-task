@@ -3,10 +3,9 @@ import React, {useState} from 'react'
 import { TbSocial } from 'react-icons/tb'
 import { useForm } from 'react-hook-form'
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import TextInput from '../components/TextInput';
-import Loading from '../components/Loading';
-import CustomButton from '../components/CustomButton';
-import LoginwithGoogle from '../components/LoginwithGoogle';
+import TextInput from '../components/TestInput/TextInput';
+import Loading from '../components/Loading/Loading';
+import CustomButton from '../components/CustomBotton/CustomButton';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -100,9 +99,7 @@ const RegisterPage = () => {
               isSubmitting ? <Loading /> : <CustomButton type='submit' containerStyles={`inline-flex justify-center rounded-md bg-red-500 px-16 py-2.5 my-2 tracking-wide text-md font-medium text-white outline-none `} title='Create Account'/>
             }
           </form>
-          <div className='inline-flex justify-center mb-3'>
-            <LoginwithGoogle />
-          </div>
+          
           <p className='text-ascent-2 text-sm text-center'>
             Already have an account? <Link href='/login' className='text-red-500 font-semibold ml-2 cursor-pointer'>Login</Link>
           </p>

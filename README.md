@@ -1,5 +1,7 @@
 # PDF Splitter Web Application 
 
+**[Link to Visit](https://pdfsplitter-abhinav.netlify.app "Visit")**
+
 Welcome to the PDF Splitter web application! This application allows users to upload PDF files, select specific pages from the uploaded PDF, rearrange the selected pages, and download the customized PDF.
 
 ## Table of Contents
@@ -7,7 +9,7 @@ Welcome to the PDF Splitter web application! This application allows users to up
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
-- [Usage](#usage)
+- [How to use](#how-to-use)
 - [Visual Appearance](#visual-appearance)
 - [Contributors](#contributors)
 - [License](#license)
@@ -30,6 +32,15 @@ Welcome to the PDF Splitter web application! This application allows users to up
 - **PDF-lib**: PDF-lib is utilized to manipulate PDF files, such as splitting and merging pages.
 - **react-beautiful-dnd**: react-beautiful-dnd is used to implement the drag and drop feature of PDF pages.
 
+## Prerequisites
+
+List of software, tools, or dependencies required to run in local machine:
+
+- Node.js (version 18.17 or later)
+- MongoDB Compass or atlas only if want to see database  (version >= 6.X.X) or MongoDB Atlas
+- macOS, Windows (including WSL), and Linux are supported.
+- A code editor such as VS Code
+
 ## Installation
 
 To run the application locally, follow these steps:
@@ -40,20 +51,21 @@ To run the application locally, follow these steps:
 4. Start the development server by running `npm run dev`.
 5. Access the application in your web browser at `http://localhost:3000`.
 
-## Usage
+## How to use
 
 1. Sign up or log in to the application.
 2. Upload a PDF file using the provided interface.
 3. Select the desired pages by clicking on them.
 4. Rearrange the order of selected pages by dragging and dropping.
 5. Click the "Download" button to generate and download the customized PDF file.
-6. Stored PDFs can be accessed from the user's account.
+6. Stored PDFs can be accessed by clicking on All files.
 
 ## Visual Appearance
 
 ![alt text](/public/image-2.png)
 ![alt text](/public/image-1.png)
 ![alt text](/public/image.png)
+![alt text](/public/image-4.png)
 ![alt text](/public/image-3.png)
 
 ## Contributors

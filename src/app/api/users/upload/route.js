@@ -3,6 +3,8 @@ import { writeFile } from "fs/promises";
 import User from "@/models/userModel";
 import { connect } from "@/dbConfig/dbConfig";
 import { getDataFromToken } from "@/helpers/getDataFromToken";
+import { generatePublicUrl, uploadFile } from "@/helpers/uploadPdfToGoogleDrive";
+import fs from 'fs';
 
 connect();
 
@@ -29,13 +31,23 @@ export async function POST(request) {
     }
     
     if (!user.files.includes(fileName)) {
+
+      // Save the file to upload to google drive
       const path = `public/uploads/${fileName}`;
       await writeFile(path, buffer);
-      user.files.push(fileName);
+
+      // Upload the file to Google Drive
+      const fileId = await uploadFile(path, fileName);
+      const fileUrl = await generatePublicUrl(fileId);
+
+      // Delete the file from local environment after uploading to Google Drive
+      fs.unlinkSync(path);
+
+      // Save the file to the user's files array
+      user.files.push({fileUrl, fileName});
       await user.save();
     }
 
-    // const fileUrl = `${process.env.NEXT_PUBLIC_API_URL}/uploads/${fileName}`;
     return NextResponse.json({ message: 'File uploaded successfully', success:true });
 
   } catch (error) {

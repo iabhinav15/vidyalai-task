@@ -9,11 +9,8 @@ export async function GET(request) {
 
   try {
     const userId = await getDataFromToken(request);
-    // console.log(userId, "userId");
+    
     let user = await User.findById(userId);
-
-    // console.log(user, "user");
-    // const fileUrl = `${process.env.NEXT_PUBLIC_API_URL}/uploads/${fileName}`;
 
     return NextResponse.json({ allpdf: user?.files, success:true });
 

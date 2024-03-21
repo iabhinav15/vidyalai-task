@@ -7,12 +7,14 @@ import { GrMultiple } from "react-icons/gr";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
+import Loading from '../Loading/Loading';
 
 const Hero = () => {
   const [pdfFile, setPdfFile] = useState(null);
   const [selectedPages, setSelectedPages] = useState([]);
   const [numPages, setNumPages] = useState(0);
-  console.log(process.env.NODE_ENV, "process.env.NODE_ENV")
+  const [isLoading, setIsLoading] = useState(false);
+
   pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.js',
     import.meta.url,
@@ -62,6 +64,7 @@ const Hero = () => {
 
   const extractPages = async () => {
     if (!pdfFile || selectedPages.length === 0) return;
+    setIsLoading(true);
 
     const existingPdfBytes = await pdfFile.arrayBuffer();
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
@@ -79,6 +82,7 @@ const Hero = () => {
     //uploading file to server
     await uploadFileTOServer(pdfFile);
 
+    setIsLoading(false);
     // Trigger download
     const a = document.createElement('a');
     a.href = downloadUrl;
@@ -184,11 +188,16 @@ const Hero = () => {
           <h1>Extract</h1> 
           <GrMultiple size={28} />
         </div>
-        <div className='md:p-8 lg:p-12'>                  
+        <div className='sm:p-4 md:p-8 lg:p-12'>   
+        {
+          isLoading ? (<Loading />) : 
+          (               
           <button onClick={extractPages} className='flex gap-3 font-semibold text-2xl bg-red-500  text-white md:px-5 lg:px-8 py-5 rounded-2xl'>
             <h1>Download</h1> 
             <FaCloudDownloadAlt size={30} />
           </button>
+          )
+        }
         </div>
       </div>
     </div>
