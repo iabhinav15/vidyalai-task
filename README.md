@@ -8,9 +8,12 @@ Welcome to the PDF Splitter web application! This application allows users to up
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Application Structure](#application-structure)
+- [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [How to use](#how-to-use)
 - [Visual Appearance](#visual-appearance)
+- [Api Documentation](#api-documentation)
 - [Contributors](#contributors)
 - [License](#license)
 
@@ -31,6 +34,19 @@ Welcome to the PDF Splitter web application! This application allows users to up
 - **React-PDF**: React-PDF is used to display PDF files and interact with them.
 - **PDF-lib**: PDF-lib is utilized to manipulate PDF files, such as splitting and merging pages.
 - **react-beautiful-dnd**: react-beautiful-dnd is used to implement the drag and drop feature of PDF pages.
+- **JSON Web Token(JWT)**: Used for authentication.
+- **bcryptjs**: Used for hashing the password to store in database.
+
+
+## Application Structure
+The application follows a MVC architecture.
+
+- Models: Define the data structure for MongoDB, represent the schema for user information and files.
+
+- Controllers: Responsible for manage user authentication and file related operations.
+
+- View: The view is the user interface, which is responsible for displaying the data and receiving the user's input.
+
 
 ## Prerequisites
 
@@ -67,6 +83,10 @@ To run the application locally, follow these steps:
 ![alt text](/public/image.png)
 ![alt text](/public/image-4.png)
 ![alt text](/public/image-3.png)
+
+
+## Api Documentation
+**[Link to Visit](https://documenter.getpostman.com/view/30176049/2sA35A6Prf "Visit")**
 
 ## Contributors
 
