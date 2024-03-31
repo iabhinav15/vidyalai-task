@@ -39,7 +39,7 @@ export async function uploadFile(filePath, fileName) {
       },
     });
 
-    console.log(response.data);
+    // console.log(response.data);
     return response.data.id;
   } catch (error) {
     console.log(error.message);
@@ -66,7 +66,7 @@ export async function generatePublicUrl(id) {
       fields: 'webViewLink',
     });
 
-    console.log(result.data);
+    // console.log(result.data);
     return result.data.webViewLink;
   } catch (error) {
     console.log(error.message);
