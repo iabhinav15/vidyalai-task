@@ -1,5 +1,5 @@
 {
-  "name": "Pdf Splitter",
+  "name": "pdfsplitter",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2",
     "bcryptjs": "^2.4.3",
     "googleapis": "^134.0.0",
     "jsonwebtoken": "^9.0.2",
@@ -23,6 +25,7 @@
     "react-pdf": "^7.7.1"
   },
   "devDependencies": {
+    "@capacitor/cli": "^6.1.2",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.2",
     "autoprefixer": "^10.0.1",
